@@ -334,7 +334,7 @@ function notify() {
           }
         }
       } catch (e) {
-        throw new Error(`账号Cookie读取失败, 请检查Json格式. \n${e.message}`)
+        throw new Error(`账号Cookie读取失败, 请检查Json格式. \n${e.stack}`)
       }
     }
     $nobyda.time();
@@ -342,7 +342,7 @@ function notify() {
     throw new Error('脚本终止, 未获取Cookie ‼️')
   }
 })().catch(e => {
-  $nobyda.notify("京东签到", "", e.message || JSON.stringify(e))
+  $nobyda.notify("京东签到", "", e.stack || JSON.stringify(e))
 }).finally(() => {
   if ($nobyda.isJSBox) $intents.finish($nobyda.st);
   $nobyda.done();
