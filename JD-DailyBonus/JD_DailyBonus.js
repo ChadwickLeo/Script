@@ -324,6 +324,7 @@ function notify() {
     if (DualKey && DualKey !== Key) await all(DualKey);
     if ((OtherKey || cookieSet || '[]') != '[]') {
       try {
+        console.log("\n" + "[OtherKey] " + OtherKey + "\n" + "[cookieSet] " + cookieSet)
         OtherKey = checkFormat([...JSON.parse(OtherKey || '[]'), ...JSON.parse(cookieSet || '[]')]);
         console.log("\n" + "OtherKey: " + JSON.stringify(OtherKey))
         const updateSet = OtherKey.length ? $nobyda.write(JSON.stringify(OtherKey, null, 2), EnvInfo3) : '';
