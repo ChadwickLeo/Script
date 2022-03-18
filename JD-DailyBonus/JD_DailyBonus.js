@@ -325,6 +325,7 @@ function notify() {
     if ((OtherKey || cookieSet || '[]') != '[]') {
       try {
         OtherKey = checkFormat([...JSON.parse(OtherKey || '[]'), ...JSON.parse(cookieSet || '[]')]);
+        console.log("\n" + "OtherKey: " + JSON.stringify(OtherKey))
         const updateSet = OtherKey.length ? $nobyda.write(JSON.stringify(OtherKey, null, 2), EnvInfo3) : '';
         for (let i = 0; i < OtherKey.length; i++) {
           const ck = OtherKey[i].cookie;
